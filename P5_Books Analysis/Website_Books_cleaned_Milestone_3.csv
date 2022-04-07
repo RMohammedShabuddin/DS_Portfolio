@@ -1,0 +1,103 @@
+,Book_Name,Author_Name,Copies_sold in Millions,Published Date,Original language
+0,Harry Potter and the Philosopher's Stone,J. K. Rowling,120,1997,English
+1,The Little Prince,Antoine de Saint-Exupéry,100,1943,French
+2,Dream of the Red Chamber,Cao Xueqin,100,18th century,Chinese
+3,The Hobbit,J. R. R. Tolkien,100,1937,English
+4,And Then There Were None,Agatha Christie,100,1939,English
+5,"The Lion, the Witch and the Wardrobe",C. S. Lewis,85,1950,English
+6,She: A History of Adventure,H. Rider Haggard,83,1887,English
+7,The Adventures of Pinocchio (Le avventure di Pinocchio),Carlo Collodi,>80,1881,Italian
+8,The Da Vinci Code,Dan Brown,80,2003,English
+9,Harry Potter and the Chamber of Secrets,J. K. Rowling,77,1998,English
+10,Harry Potter and the Prisoner of Azkaban,J. K. Rowling,65,1999,English
+11,Harry Potter and the Goblet of Fire,J. K. Rowling,65,2000,English
+12,Harry Potter and the Order of the Phoenix,J. K. Rowling,65,2003,English
+13,Harry Potter and the Half-Blood Prince,J. K. Rowling,65,2005,English
+14,Harry Potter and the Deathly Hallows,J. K. Rowling,65,2007,English
+15,The Alchemist (O Alquimista),Paulo Coelho,65,1988,Portuguese
+16,The Catcher in the Rye,J. D. Salinger,65,1951,English
+17,The Bridges of Madison County,Robert James Waller,60,1992,English
+18,Ben-Hur: A Tale of the Christ,Lew Wallace,50,1880,English
+19,You Can Heal Your Life,Louise Hay,50,1984,English
+20,One Hundred Years of Solitude (Cien años de soledad),Gabriel García Márquez,50,1967,Spanish
+21,Lolita,Vladimir Nabokov,50,1955,English
+22,Heidi,Johanna Spyri,50,1880,Swiss German
+23,The Common Sense Book of Baby and Child Care,Benjamin Spock,50,1946,English
+24,Anne of Green Gables,Lucy Maud Montgomery,50,1908,English
+25,Black Beauty,Anna Sewell,50,1877,English
+26,The Name of the Rose (Il Nome della Rosa),Umberto Eco,50,1980,Italian
+27,The Eagle Has Landed,Jack Higgins,50,1975,English
+28,Watership Down,Richard Adams,50,1972,English
+29,The Hite Report,Shere Hite,50,1976,English
+30,Charlotte's Web,E. B. White; illustrated by Garth Williams,50,1952,English
+31,The Ginger Man,J. P. Donleavy,50,1955,English
+32,The Tale of Peter Rabbit,Beatrix Potter,45,1902,English
+33,Jonathan Livingston Seagull,Richard Bach,44,1970,English
+34,The Very Hungry Caterpillar,Eric Carle,43,1969,English
+35,A Message to Garcia,Elbert Hubbard,40,1899,English
+36,To Kill a Mockingbird,Harper Lee,40,1960,English
+37,Flowers in the Attic,V. C. Andrews,40,1979,English
+38,Cosmos,Carl Sagan,40,1980,English
+39,Sophie's World (Sofies verden),Jostein Gaarder,40,1991,Norwegian
+40,Angels & Demons,Dan Brown,39,2000,English
+41,Kane and Abel,Jeffrey Archer,37,1979,English
+42,How the Steel Was Tempered (Как закалялась сталь),Nikolai Ostrovsky,36.4,1932,Russian
+43,War and Peace (Война и мир),Leo Tolstoy,36.0,1869,Russian
+44,The Diary of Anne Frank (Het Achterhuis),Anne Frank,35,1947,Dutch
+45,Your Erroneous Zones,Wayne Dyer,35,1976,English
+46,The Thorn Birds,Colleen McCullough,33,1977,English
+47,The Purpose Driven Life,Rick Warren,33,2002,English
+48,The Kite Runner,Khaled Hosseini,31.5,2003,English
+49,Valley of the Dolls,Jacqueline Susann,31,1966,English
+50,The Great Gatsby,F. Scott Fitzgerald,30,1925,English
+51,Gone with the Wind,Margaret Mitchell,30,1936,English
+52,Rebecca,Daphne du Maurier,30,1938,English
+53,Nineteen Eighty-Four,George Orwell,30,1949,English
+54,The Revolt of Mamie Stover,William Bradford Huie,30,1951,English
+55,The Girl with the Dragon Tattoo (Män som hatar kvinnor),Stieg Larsson,30,2005,Swedish
+56,The Lost Symbol,Dan Brown,30,2009,English
+57,The Hunger Games,Suzanne Collins,29,2008,English
+58,James and the Giant Peach,Roald Dahl,28,1961,English
+59,The Young Guard (Молодая гвардия),Alexander Alexandrovich Fadeyev,26,1945,Russian
+60,Who Moved My Cheese?,Spencer Johnson,26,1998,English
+61,A Brief History of Time,Stephen Hawking,25,1988,English
+62,Paul et Virginie,Jacques-Henri Bernardin de Saint-Pierre,25,1788,French
+63,Lust for Life,Irving Stone,25,1934,English
+64,The Wind in the Willows,Kenneth Grahame,25,1908,English
+65,The 7 Habits of Highly Effective People,Stephen R. Covey,25,1989,English
+66,Virgin Soil Upturned (Поднятая целина),Mikhail Sholokhov,24,1935,Russian
+67,The Celestine Prophecy,James Redfield,23,1993,English
+68,The Fault in Our Stars,John Green,23,2012,English
+69,The Shack,William P. Young,22,2007,English
+70,Uncle Styopa (Дядя Степа),Sergey Mikhalkov,21,1936,Russian
+71,The Godfather,Mario Puzo,21,1969,English
+72,Love Story,Erich Segal,21,1970,English
+73,Catching Fire,Suzanne Collins,21,2009,English
+74,Mockingjay,Suzanne Collins,20,2010,English
+75,Kitchen,Banana Yoshimoto,20,1988,Japanese
+76,Andromeda Nebula,Ivan Yefremov,20,1957,Russian
+77,Autobiography of a Yogi,Paramahansa Yogananda,20,1946,Hindi
+78,Gone Girl,Gillian Flynn,20,2012,English
+79,The Girl on the Train,Paula Hawkins,20,2015,English
+80,All Quiet on the Western Front (Im Westen nichts Neues),Erich Maria Remarque,20,1929,German
+81,The Bermuda Triangle,Charles Berlitz,20,1974,English
+82,Things Fall Apart,Chinua Achebe,20,1958,English
+83,Animal Farm,George Orwell,20,1945,English
+84,Wolf Totem (狼图腾),Jiang Rong,20,2004,Chinese
+85,The Happy Hooker: My Own Story,Xaviera Hollander,20,1971,English
+86,Jaws,Peter Benchley,20,1974,English
+87,Love You Forever,Robert Munsch,20,1986,English
+88,The Women's Room,Marilyn French,20,1977,English
+89,What to Expect When You're Expecting,Arlene Eisenberg and Heidi Murkoff,20,1984,English
+90,Adventures of Huckleberry Finn,Mark Twain,20,1885,English
+91,"The Secret Diary of Adrian Mole, Aged 13¾",Sue Townsend,20,1982,English
+92,Pride and Prejudice,Jane Austen,20,1813,English
+93,Kon-Tiki: Across the Pacific in a Raft (Kon-Tiki ekspedisjonen),Thor Heyerdahl,20,1950,Norwegian
+94,The Good Soldier Švejk (Osudy dobrého vojáka Švejka za světové války),Jaroslav Hašek,20,1923,Czech
+95,Where the Wild Things Are,Maurice Sendak,20,1963,English
+96,The Power of Positive Thinking,Norman Vincent Peale,20,1952,English
+97,The Secret,Rhonda Byrne,20,2006,English
+98,Fear of Flying,Erica Jong,20,1973,English
+99,Dune,Frank Herbert,20,1965,English
+100,Charlie and the Chocolate Factory,Roald Dahl,20,1964,English
+101,The Naked Ape,Desmond Morris,20,1968,English
