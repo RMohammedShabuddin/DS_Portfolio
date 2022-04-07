@@ -4,8 +4,8 @@ The Coronavirus disease (COVID-19) is caused by a newly discovered virus. There 
 
 ## Statistical/Hypothetical Question
 In this project, I am planning to research the following questions.
-•	Total number of Deaths due to COVID-19 based on Race.
-•	Total number of Deaths due to different reasons by Race.
-•	Top 10 States where the deaths due to COVID-19 is high.
-•	Total number of deaths with age 
-•	COVID-19 Death vs Pneumonia Death by Race.
+<li>Total number of Deaths due to COVID-19 based on Race.
+<li>Total number of Deaths due to different reasons by Race.
+<li>Top 10 States where the deaths due to COVID-19 is high.
+<li>Total number of deaths with age 
+<li>COVID-19 Death vs Pneumonia Death by Race.
