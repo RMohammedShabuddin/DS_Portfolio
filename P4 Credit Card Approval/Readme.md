@@ -1,2 +1,5 @@
+## Executive Summary
+The purpose of this project is to predict credit card approval by analyzing the impact of different fields on the approval for a credit card. Being able to predict what type of customer are likely to default on their payment comes in handy when dealing with approval of applicants of the credit card to avoid future risk. According to a data from the Federal Reserve Bank of New York, in the first quarter of 2021, the 90-day failure to make outstanding payment was 9.98% compare with 9.09% at the same time in 2020.
+            The dataset for credit card approval for prediction was taken from Kaggle. Approval of application for the credit card depends on number of factors such as their credit payment status, their total income earned, age, year of employment and so on. Using all the required features and through the use of predictive analytics and machine learning, patterns and relationship among the variables were analyzed. To create a model, we used logistic regression, decision tree, random forest, support vector classifier, KNN and XGBoost.
 
-[fghfh](https://github.com/RamizuddinS/DS_Portfolio/tree/main/P1_Predicting%20Employee%20Attrition)
+[Other Projects](https://github.com/RamizuddinS/DS_Portfolio)
