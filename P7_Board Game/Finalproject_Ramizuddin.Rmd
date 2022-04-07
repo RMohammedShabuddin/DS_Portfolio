@@ -1,0 +1,294 @@
+---
+title: "Week12_FinalStep3"
+author: "RamizuddinMohammedShabuddin"
+date: "2/25/2021"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE}
+setwd("E:/Bellevue/Semester3_11302020/Term3/dsc520/data")
+if(FALSE %in% 
+  do.call(c,lapply(c("tidyverse", "GGally", "RSQLite", "scales", "wesanderson"), function(pkg){
+    if(! require(pkg, character.only = TRUE)) install.packages(pkg, depend = TRUE)
+    library(pkg, character.only = TRUE, logical.return = TRUE, quietly = TRUE, warn.conflicts = FALSE)
+  }))
+) stop("Cannot resolve some dependencies; exiting now...")
+```
+With being a parent of 2 kids, I think I spend lot of money on board games and video games. The data set which was found interesting because of the children in the family. Where we spend some dollars in picking the board games. There are multiple board games in the market.  Using the data set available let’s try to find “What constitute the perfect Board Game?” As said before, It is very broad question and cannot be answered without a deep knowledge of the data itself. Because of the Eurogame Revolution, the Board Game industry is becoming interesting. There are young and talented Engineers from Europe introduced new design which has highly improved the quality of games.
+
+## Importing and cleaning the data
+
+1. There are parameter which we are not planning to study. So, we can remove those parameters.
+2. There are some columns which are with zero values. I am thinking of making then to N/A. So that will help me with ignoring the values when needed.
+3. Then, We can remove some games which were before 1960s. Also, it would be great to remove the games which are not yet released.
+
+```{r echo=FALSE}
+bgg.prepare.data <- function(bgg.dataset = BoardGames){
+
+  videogames.id <- (function(x){
+    if(NROW(which(colnames(BoardGames)=="stats.family.amiga.pos"))>0){
+      return(
+        unique(c(
+          which(!is.na(bgg.dataset$stats.family.amiga.pos)),
+          which(!is.na(bgg.dataset$stats.family.arcade.pos)),
+          which(!is.na(bgg.dataset$stats.family.atarist.pos)),
+          which(!is.na(bgg.dataset$stats.family.commodore64.pos)))
+        )
+      ) }
+    else return(NULL)
+  })(bgg.dataset)
+  
+  bgg.dataset <- bgg.dataset[-videogames.id,]
+
+  bgg.dataset <- select(bgg.dataset, -one_of("details.image", "details.thumbnail", "details.description", "stats.median"))
+  bgg.dataset <- select(bgg.dataset, -contains("stats.family.amiga"),
+               -contains("stats.family.arcade"),
+               -contains("stats.family.atarist"),
+               -contains("stats.family.commodore64"),
+               -contains("stats.subtype.videogame")
+  )
+
+  # Zero value in some columns are missing so changed to NA
+  bgg.dataset[which(as.numeric(bgg.dataset$details.yearpublished)==0),]$details.yearpublished <- NA
+  bgg.dataset[which(as.numeric(bgg.dataset$stats.average)==0),]$stats.average <- NA
+
+  # Filter out games that were released before 1959 or not yet released
+  summary(as.numeric(bgg.dataset$details.yearpublished))
+  quantile(as.numeric(bgg.dataset$details.yearpublished), seq(0, 1, 0.05), na.rm = TRUE)
+
+  bgg.dataset <- bgg.dataset %>% filter(
+    (as.numeric(details.yearpublished) >= 1960) |
+      is.na(details.yearpublished)
+  )
+
+  # Some useful discretizations
+  bgg.dataset$stats.weight.factor <- as.factor(plyr::round_any(bgg.dataset$stats.averageweight, 1))
+  bgg.dataset$details.playingtime <- plyr::round_any(bgg.dataset$details.playingtime, 15)
+
+  bgg.dataset$details.playingtime.factor <- as.factor(ifelse(bgg.dataset$details.playingtime >= 240, "240+", as.character(bgg.dataset$details.playingtime)))
+  bgg.dataset$details.minplayers.factor <- as.factor(ifelse(bgg.dataset$details.minplayers >= 8, "8+", as.character(bgg.dataset$details.minplayers)))
+  bgg.dataset$details.maxplayers.factor <- as.factor(ifelse(bgg.dataset$details.maxplayers >= 15, "15+", as.character(bgg.dataset$details.maxplayers)))
+  bgg.dataset$details.minage.factor <- as.factor(ifelse(bgg.dataset$details.minage >= 21, "21+", as.character(bgg.dataset$details.minage)))
+
+
+  return(bgg.dataset)
+
+}
+
+
+multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
+  library(grid)
+
+  # Make a list from the ... arguments and plotlist
+  plots <- c(list(...), plotlist)
+
+  numPlots = length(plots)
+
+  # If layout is NULL, then use 'cols' to determine layout
+  if (is.null(layout)) {
+    # Make the panel
+    # ncol: Number of columns of plots
+    # nrow: Number of rows needed, calculated from # of cols
+    layout <- matrix(seq(1, cols * ceiling(numPlots/cols)),
+                    ncol = cols, nrow = ceiling(numPlots/cols))
+  }
+
+ if (numPlots==1) {
+    print(plots[[1]])
+
+  } else {
+    # Set up the page
+    grid.newpage()
+    pushViewport(viewport(layout = grid.layout(nrow(layout), ncol(layout))))
+
+    # Make each plot, in the correct location
+    for (i in 1:numPlots) {
+      # Get the i,j matrix positions of the regions that contain this subplot
+      matchidx <- as.data.frame(which(layout == i, arr.ind = TRUE))
+
+      print(plots[[i]], vp = viewport(layout.pos.row = matchidx$row,
+                                      layout.pos.col = matchidx$col))
+    }
+  }
+}
+db.con <- dbConnect(SQLite(), dbname="E:/Bellevue/Semester3_11302020/Term3/dsc520/data/database.sqlite/database.sqlite")
+
+BoardGames <- dbReadTable(db.con, "BoardGames") 
+```
+
+```{r echo=FALSE}
+
+  # Filter all those boardgames that has less than 5 user ratings. This will help to clean the dataset.
+  # * Unpublished games
+  # * Adult variant of popular games
+  # * Homebrew projects
+corr.palette <- wes_palette(name="Rushmore", 3, type = "continuous")
+
+bgg.useful <- BoardGames %>% 
+bgg.prepare.data() %>%
+filter(!is.na(details.yearpublished)) %>% 
+filter(details.yearpublished <= 2016) %>%
+filter(details.yearpublished >= 1960) %>%
+filter(stats.usersrated >= 5, game.type == "boardgame")
+
+rownames(bgg.useful) <- make.names(bgg.useful$details.name, unique=TRUE)
+
+```
+
+As we were planning, lets see how the gaming industries have improved over the years. With the gaming data available, let plot a graph to see how the number of games released per year. The graphs below shows the number of games were very less until year 2000, after that the rapid growth was noticed.
+
+```{r echo=FALSE}
+# summarize by year
+boardgames.by.years <- bgg.useful %>%
+  mutate(details.yearpublished=as.numeric(details.yearpublished)) %>%
+  filter(!is.na(details.yearpublished)) %>%
+  filter(details.yearpublished <= 2016) %>%
+  group_by(details.yearpublished) %>%
+  dplyr::summarise(count = n())
+ggplot(boardgames.by.years,aes(x=details.yearpublished,y=count)) +
+  geom_line(colour="blue", lwd=1) +
+  scale_x_continuous(breaks = seq(1955,2020,5))+
+  ggtitle(paste('Board Games released by Year, ', min(boardgames.by.years$details.yearpublished),'-', max(boardgames.by.years$details.yearpublished))) +
+  xlab('Games Released Year') +
+  ylab("Number of Games Released") +
+  ylim(c(0,max(boardgames.by.years$count)))
+```
+The gaming marked exploded to a greater number. If we check for the median, we noticed, its is the year-2005, where the gaming industry was growing drastically. 
+```{r echo=FALSE}
+ggplot(bgg.useful, aes(as.numeric(details.yearpublished))) +
+  stat_ecdf(geom="line", lwd=.5, col="red") +
+  ggtitle("Cumulative frequency-plot of Release Year") +
+  scale_x_continuous(breaks = seq(1955,2016,5))+
+  xlab('Games Released Year') +
+  ylab("Cumulative Frequency of Games") +
+  geom_vline(xintercept=median(as.numeric(BoardGames$details.yearpublished), na.rm=TRUE), color = 'green', size=2)
+```
+
+The graph below shows that the average gaming rating follows the bell curve. The rating is distributed normal from 1 to 10.
+```{r echo=FALSE, warning=FALSE}
+ggplot(bgg.useful, aes(x = stats.average)) +
+  geom_histogram(aes(y = ..density..), binwidth = .05, fill="blue", alpha=.2, col="blue") + geom_density(col="blue", lwd=1) +
+  xlim(1,10) +
+  xlab('Avearge Games Rating') +
+  geom_vline(xintercept=mean(bgg.useful$stats.average, na.rm=TRUE), color="green", size=2)
+```
+The graph below box graph shows that, the new games started to be emerged around 2010. The box plot with the line graph shows the comparison between the years group with the average. 
+```{r echo=FALSE, warning=FALSE}
+# Splitting by year class
+ggplot(bgg.useful %>%
+         mutate(year.discrete=as.factor(plyr::round_any(as.numeric(details.yearpublished), 5))) %>%
+         filter(as.numeric(details.yearpublished) >=1970 & as.numeric(details.yearpublished) <= 2016)
+       , aes(year.discrete, stats.average, fill=year.discrete)) +
+  geom_boxplot(alpha=.2) +
+  theme_bw() +
+  ylab("Average games Rating") + xlab("Year Groups") +
+  geom_hline(yintercept=mean(bgg.useful$stats.average, na.rm=TRUE), color="blue") +
+  theme(legend.position="none")
+```
+Here, we are trying to make the filter of user rated and to build a simple correlation plot below
+
+```{r echo=FALSE, warning=FALSE}
+ggcorr(data = bgg.useful %>%
+  filter(stats.usersrated >= 120) %>%
+  select(starts_with("details"), stats.average, stats.averageweight,
+         -ends_with(".factor"),
+         -details.name,
+         -details.yearpublished)
+  ,
+       label = TRUE,
+       geom = "tile",
+       low = corr.palette[1],
+       mid = corr.palette[2],
+       high = corr.palette[3],
+       midpoint=0,
+       size = 2.5) + 
+  ggtitle("Correlations between Details Metrics")
+```
+using the correlation above, we see the Playingtime, maxplaytime and minplaytime are strongly related. 
+
+Another empirical knowledge about Board Games says that, if we exclude Party Games, games that involves many players, tend to last longer. There’s no correlation between maxplayers and maxplayingtime. 
+
+The below histograph shows that, most common games recorded in the database are definitively simple (Weight = 2).We can assess the quality and the popularity of those games.For the second col, we are trying to find the average weight using the year group.
+
+```{r echo=FALSE, warning=FALSE}
+multiplot(
+ggplot(bgg.useful %>%
+         filter(as.numeric(details.yearpublished) >=1960 & as.numeric(details.yearpublished) <= 2016) %>%
+         filter(stats.usersrated >= 100)
+       , aes(x = stats.weight.factor)) +
+  geom_histogram(binwidth=1, stat="count", fill="lightgreen", alpha=.6, col="grey") +
+  xlab("Weight") + ylab("Number of Games")
+,
+ggplot(bgg.useful %>%
+         mutate(year.discrete=as.factor(plyr::round_any(as.numeric(details.yearpublished), 5))) %>%
+         filter(as.numeric(details.yearpublished) >=1960 & as.numeric(details.yearpublished) <= 2016) %>%
+         filter(stats.usersrated >= 100)
+       , aes(year.discrete, stats.averageweight, fill=year.discrete)) +
+  geom_boxplot(alpha=.4) +
+  ylab("Avg. Weight") + xlab("Year Groups") +
+  geom_hline(yintercept=mean(bgg.useful$stats.averageweight, na.rm=TRUE), color="black") +
+  theme(legend.position="none", axis.text.x = element_text(angle = 45))
+, cols=2)
+
+```
+
+
+
+```{r echo=FALSE, warning=FALSE}
+multiplot(
+ggplot(bgg.useful %>%
+         filter(as.numeric(details.yearpublished) >=1960 & as.numeric(details.yearpublished) <= 2016) %>%
+         filter(stats.usersrated >= 120)
+       , aes(stats.weight.factor, stats.average, fill=stats.weight.factor)) +
+  geom_boxplot(alpha=.4) +
+  ylab("Average Rating") +
+  xlab("Weights") +
+  geom_hline(yintercept=median(bgg.useful$stats.average, na.rm=TRUE), color="black") +
+  theme(legend.position="none")
+  , 
+ggplot(bgg.useful %>%
+       filter(as.numeric(details.yearpublished) >=1960 & as.numeric(details.yearpublished) <= 2016)
+       %>% filter(stats.usersrated >= 120)
+       , aes(stats.averageweight, stats.average)) +
+  geom_point(alpha=.2, lwd=.2, col="deeppink") +
+  geom_smooth(col="green", lwd=.7) +
+  ylab("Average Rating") +
+  xlab("Weights")
+, cols=2)
+```
+Popularity and Ratings: To check if the BoardGameGeek has the reputation of being a competent community. we can find the correlation between game rating and game popularity. We have filtered the games with a rating of less than 10. We will consider the games as non-popular.
+
+```{r echo=FALSE, warning=FALSE}
+multiplot(
+  ggplot(bgg.useful
+         %>% filter(stats.usersrated >= 10)
+         , aes(stats.average, stats.usersrated)) +
+    geom_point(alpha=.05, lwd=1, col="blue") +
+    geom_smooth(col="blue", lwd=.7) +
+    ylab("Number of Ratings") + scale_y_log10(breaks = trans_breaks("log10", function(x) 10^x),
+                                              labels = trans_format("log10", math_format(10^.x)),
+                                              limits = c(10,10^5)) +
+    xlab("Average Rating"),
+  ggplot(bgg.useful
+         %>% filter(stats.usersrated >= 10)
+         , aes(stats.average, stats.usersrated)) +
+    geom_point(alpha=.05, lwd=1, col="orange") +
+    geom_smooth(col="blue", lwd=.7) +
+    ylab("Number of Owners") + scale_y_log10(breaks = trans_breaks("log10", function(x) 10^x),
+                                             labels = trans_format("log10", math_format(10^.x)),
+                                             limits = c(10,10^5)) +
+    xlab("Average Rating"), 
+  cols=2)
+```
+
+The graphs above shows that, there is a positive correlation between the Number of Rating and the number of Owners. If there are more better rating for the games, people tend to own it.
+
+## Discuss the limitations of your analysis and how you, or someone else, could improve or build on it.
+
+With the large number of data columns we could have attempted to research more on the other columns. Which was not done in this project step. 
