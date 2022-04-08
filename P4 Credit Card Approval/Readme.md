@@ -9,19 +9,19 @@ The decision of approving a credit card or loan is majorly dependent on the pers
 ## EDA Analysis
 Here are examples of few graphs we created for EDA. The Status shows the binary values of either 1 or 0. 0 indicates that the applicant has paid their credit due on time or has no loan remaining. Whereas 1 indicates that they are behind on their payments. 
 
-![image](https://user-images.githubusercontent.com/39715185/162340751-9d2a25df-cb6d-42da-8386-598601c2fdda.png)
+![image](https://user-images.githubusercontent.com/39715185/162340751-9d2a25df-cb6d-42da-8386-598601c2fdda.png)<br/>
 The above graph shows that the applicants are not good candidates if Total income & years of Employment is less. 
 
-![image](https://user-images.githubusercontent.com/39715185/162340784-4e981eda-db05-4114-8153-b30d3f815af5.png)
+![image](https://user-images.githubusercontent.com/39715185/162340784-4e981eda-db05-4114-8153-b30d3f815af5.png)<br/>
 The above graph shows that, majority of applicants who have higher income are more likely to pay their due on time.  There is no correlation with age with their payments. We also analyzed the applicant’s distribution data, here are some results that we found:	
 ### Majority of applicant’s are married
-![image](https://user-images.githubusercontent.com/39715185/162340805-3730e212-6f2a-4147-bc3a-4deb9c08b742.png)
+![image](https://user-images.githubusercontent.com/39715185/162340805-3730e212-6f2a-4147-bc3a-4deb9c08b742.png)<br/>
 ### Majority of applicant's lives in House / Apartment
-![image](https://user-images.githubusercontent.com/39715185/162340855-fc4820c9-682b-41c1-9b23-972b06cfb8a8.png)
+![image](https://user-images.githubusercontent.com/39715185/162340855-fc4820c9-682b-41c1-9b23-972b06cfb8a8.png)<br/>
 ### Majority of applicant's are 25- 65 years old                   
-![image](https://user-images.githubusercontent.com/39715185/162340891-3f6a2c05-4689-4b49-8379-56311ae23c37.png)
+![image](https://user-images.githubusercontent.com/39715185/162340891-3f6a2c05-4689-4b49-8379-56311ae23c37.png)<br/>
 ### Majority of applicant's are Employed for 0 -7 years
-![image](https://user-images.githubusercontent.com/39715185/162340916-1e8b0895-1733-4122-a7fc-086d6772d8c2.png)
+![image](https://user-images.githubusercontent.com/39715185/162340916-1e8b0895-1733-4122-a7fc-086d6772d8c2.png)<br/>
 
 ### Correlation
 Below we have the seaborn correlation heatmap which shows that the features are not highly correlated to each other. In addition to that, the features are also evenly split between positive and negative correlation between two variables. This graph also shows that there is no column (Feature) which is highly co-related with 'Status'
