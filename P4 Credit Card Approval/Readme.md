@@ -71,15 +71,15 @@ For modeling we used Logistic regression, Decision tree, Random Forest, SVM, KNN
     </tr>
   </tbody>
 </table>
+
+
 ## Discussion/conclusion
-<ol>As the dataset is highly imbalanced, we have used SMOTE (Synthetic Minority Oversampling Technique) technique to understand which model performs better.
-<ol>We took 2 passes at the Machine learning models, one with initial data and other with balanced data after performing SMOTE technique and the two results differed significantly.
-   After applying all the Machine learning models on the balanced dataset, we got that XGBoost Model is giving the highest accuracy of 84.14 %. SMOTE Sampling methods provided much better results compared to raw data.
-We will be refining our models and algorithms further in the coming weeks and if results remain the same then we will be choosing XGBoost as the preferred algorithm for any future credit card approval prediction. 
-For future work, the efficiency of the models can be improved if the dataset is larger, and balanced so, that the sampling method is not needed. If the original values of the dataset are known, then we can know how the data is correlated and which features are important and train accordingly. In the future different methods can be used to improve the results, more parameter tuning can be done.
+<li>As the dataset is highly imbalanced, we have used SMOTE (Synthetic Minority Oversampling Technique) technique to understand which model performs better.</li>
+<li> We took 2 passes at the Machine learning models, one with initial data and other with balanced data after performing SMOTE technique and the two results differed significantly. After applying all the Machine learning models on the balanced dataset, we got that XGBoost Model is giving the highest accuracy of 84.14 %. SMOTE Sampling methods provided much better results compared to raw data.</li>
+<li>We will be refining our models and algorithms further in the coming weeks and if results remain the same then we will be choosing XGBoost as the preferred algorithm for any future credit card approval prediction. </li>
+<li>For future work, the efficiency of the models can be improved if the dataset is larger, and balanced so, that the sampling method is not needed. If the original values of the dataset are known, then we can know how the data is correlated and which features are important and train accordingly. In the future different methods can be used to improve the results, more parameter tuning can be done.</li>
 
-
-## References
+## References 
 <li>Abbott, D. (2014). Applied Predictive Analytics: Principles and Techniques for the Professional Data Analyst (1st ed.). Wiley.
 <li>Siegel, E. (2016). Predictive Analytics: The Power to Predict Who Will Click, Buy, Lie, or Die (Revised and Updated ed.). Wiley.
 <li>Li, S. (2019, February 27). Building A Logistic Regression in Python, Step by Step. Medium. https://towardsdatascience.com/building-a-logistic-regression-in-python-step-by-step-becd4d56c9c8
