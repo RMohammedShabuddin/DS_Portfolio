@@ -9,3 +9,6 @@ In this project, I am planning to research the following questions.
 <li>Top 10 States where the deaths due to COVID-19 is high.
 <li>Total number of deaths with age 
 <li>COVID-19 Death vs Pneumonia Death by Race.
+
+  
+[Other Projects](https://github.com/RamizuddinS/DS_Portfolio)
