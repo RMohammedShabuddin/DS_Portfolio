@@ -41,8 +41,8 @@ Employees who do overtime are more likely to leave the company
 ![image](https://user-images.githubusercontent.com/39715185/162350469-600592b5-872e-43dd-92d0-1c23b9ec47ad.png)
 
 ## Models 
-For modeling we used Logistic regression, Decision tree, Random Forest and SGDClassifier models. Below is table which shows the accuracy based on used machine learning algorithm used.
-![image](https://user-images.githubusercontent.com/39715185/162350589-4460112f-75db-4913-be19-8af465db325b.png)
+For modeling we used Logistic regression, Decision tree, Random Forest and SGDClassifier models. Below is table which shows the accuracy based on used machine learning algorithm used.<BR>
+![image](https://user-images.githubusercontent.com/39715185/162350589-4460112f-75db-4913-be19-8af465db325b.png)<BR>
 Logistic Regression is selected for further performance tuning. Logistic Regression model is tuned with hyper parameters using Grid Search CV. The Grid SearchCV on Logistic Regression classifier increased the ROC-AUC score to 81%. 
 
 ## Conclusion
