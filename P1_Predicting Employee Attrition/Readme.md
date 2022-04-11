@@ -12,6 +12,18 @@ Here are examples of few graphs created for EDA.
 ### Employee Attrition count 
 ![image](https://user-images.githubusercontent.com/39715185/162350015-49b69cf9-98cd-4b53-978b-801942296746.png)
 
+### Employee Attrition Percentage
+
+![image](https://user-images.githubusercontent.com/39715185/162659818-cfbf9c34-8664-42ad-986f-c59a2dbe7b9c.png)
+
+### Years at Company vs Monthly Income
+More people are likely to leave at early stage of the company or during there 10 years approx..
+![image](https://user-images.githubusercontent.com/39715185/162659861-f7a957b6-db6e-458a-bc25-d99a7b93b373.png)
+
+### Distance From Home vs Monthly income
+![image](https://user-images.githubusercontent.com/39715185/162659918-9a7ab90c-76c0-4d7f-9c34-215589af7b6e.png)
+
+
 ### Age factor vs attrition count
 People with age of 26 to 35 tend to leave the organization.
 ![image](https://user-images.githubusercontent.com/39715185/162350104-cea5d530-5781-4b2a-aafb-52a7a4c14d4e.png)
