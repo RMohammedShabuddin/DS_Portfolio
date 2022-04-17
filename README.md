@@ -6,10 +6,10 @@ Credit card issuing institutions are becoming meticulous in approving credit car
 #### Book Analysis (https://github.com/RamizuddinS/DS_Portfolio/tree/main/P5_Books%20Analysis)
 There are millions of books published every year. The same is being purchased regularly. With the increased number of writers, the book is being published around the world in different languages. In the final milestone, the data analysis of the books dataset. The primary intention of the project is to combine the 3 datasets from 3 different sources using the common columns and perform the necessary analysis. Some of the questions as part of my analysis are listed below.
 <li> The comparison of ratings from different sources.
-•         Top 10 books which have been sold and sales in dollars.
-•         Which language has the most percentage of books?
-•         Under which rating do most books fall.
-•         With the increased number of pages, how likely it to get more ratings.
+<li> Top 10 books which have been sold and sales in dollars.
+<li> Which language has the most percentage of books?
+<li> Under which rating do most books fall.
+<li> With the increased number of pages, how likely it to get more ratings.
 #### Death During Analysis(https://github.com/RamizuddinS/DS_Portfolio/tree/main/P6_Deaths%20during%20the%20pandemic)
 The Coronavirus disease (COVID-19) is caused by a newly discovered virus. There are more than a 36.1Million deaths due to the virus within 11 months of virus first found. The COVID-19 stands for ‘COrona Virus and Disease started in the year 2019’. The Virus has spread across the globe, the World Health Organization has declared it as a pandemic. Although, there are a big loss due to COVID-19, I was trying to find if there are some other reasons for the death. Also, I am planning to find the friends who are having to suffer the big loss.
 In this project, I am planning to research the following questions.
