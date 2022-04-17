@@ -5,11 +5,11 @@ According to the FinancesOnline Review for Business, There are around 18.9 milli
 Credit card issuing institutions are becoming meticulous in approving credit cards for customers. In addition, the downturn of financial institutions during the US subprime mortgage and the European sovereign crisis has raised concerns about risk management properly. Hence, these challenges have attracted significant attention from researchers and practitioners. A wide range of statistical and machine learning techniques have been developed to solve credit card related problems. It is found that machine learning techniques are superior to other traditional statistical techniques in dealing with credit scoring. The decision of approving a credit card or loan is majorly dependent on the personal and financial background of the applicant. There are two basic risks: one is a business loss that results from not approving the good candidate, and the other is the financial loss that results from approving the candidate who is at bad risk. It is very important to manage credit risk and handle challenges efficiently for credit decisions as it can have adverse effects on credit management. Therefore, evaluation of credit approval is significant before jumping to any granting decision.
 #### Book Analysis (https://github.com/RamizuddinS/DS_Portfolio/tree/main/P5_Books%20Analysis)
 There are millions of books published every year. The same is being purchased regularly. With the increased number of writers, the book is being published around the world in different languages. In the final milestone, the data analysis of the books dataset. The primary intention of the project is to combine the 3 datasets from 3 different sources using the common columns and perform the necessary analysis. Some of the questions as part of my analysis are listed below.
-<ol> The comparison of ratings from different sources.</li>
-<ol> Top 10 books which have been sold and sales in dollars.</li>
-<ol> Which language has the most percentage of books?</li>
-<ol> Under which rating do most books fall.</li>
-<ol> With the increased number of pages, how likely it to get more ratings.</li>
+<li> The comparison of ratings from different sources.</li>
+<li> Top 10 books which have been sold and sales in dollars.</li>
+<li> Which language has the most percentage of books?</li>
+<li> Under which rating do most books fall.</li>
+<li> With the increased number of pages, how likely it to get more ratings.</li>
   
   
 #### Death During Analysis(https://github.com/RamizuddinS/DS_Portfolio/tree/main/P6_Deaths%20during%20the%20pandemic)
