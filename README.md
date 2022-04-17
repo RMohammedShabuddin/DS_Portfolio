@@ -4,7 +4,20 @@ According to the FinancesOnline Review for Business, There are around 18.9 milli
 #### Credit Card Approval (https://github.com/RamizuddinS/DS_Portfolio/tree/main/P4%20Credit%20Card%20Approval)
 Credit card issuing institutions are becoming meticulous in approving credit cards for customers. In addition, the downturn of financial institutions during the US subprime mortgage and the European sovereign crisis has raised concerns about risk management properly. Hence, these challenges have attracted significant attention from researchers and practitioners. A wide range of statistical and machine learning techniques have been developed to solve credit card related problems. It is found that machine learning techniques are superior to other traditional statistical techniques in dealing with credit scoring. The decision of approving a credit card or loan is majorly dependent on the personal and financial background of the applicant. There are two basic risks: one is a business loss that results from not approving the good candidate, and the other is the financial loss that results from approving the candidate who is at bad risk. It is very important to manage credit risk and handle challenges efficiently for credit decisions as it can have adverse effects on credit management. Therefore, evaluation of credit approval is significant before jumping to any granting decision.
 #### Book Analysis (https://github.com/RamizuddinS/DS_Portfolio/tree/main/P5_Books%20Analysis)
+There are millions of books published every year. The same is being purchased regularly. With the increased number of writers, the book is being published around the world in different languages. In the final milestone, the data analysis of the books dataset. The primary intention of the project is to combine the 3 datasets from 3 different sources using the common columns and perform the necessary analysis. Some of the questions as part of my analysis are listed below.
+•         The comparison of ratings from different sources.
+•         Top 10 books which have been sold and sales in dollars.
+•         Which language has the most percentage of books?
+•         Under which rating do most books fall.
+•         With the increased number of pages, how likely it to get more ratings.
 #### Death During Analysis(https://github.com/RamizuddinS/DS_Portfolio/tree/main/P6_Deaths%20during%20the%20pandemic)
+The Coronavirus disease (COVID-19) is caused by a newly discovered virus. There are more than a 36.1Million deaths due to the virus within 11 months of virus first found. The COVID-19 stands for ‘COrona Virus and Disease started in the year 2019’. The Virus has spread across the globe, the World Health Organization has declared it as a pandemic. Although, there are a big loss due to COVID-19, I was trying to find if there are some other reasons for the death. Also, I am planning to find the friends who are having to suffer the big loss.
+In this project, I am planning to research the following questions.
+Total number of Deaths due to COVID-19 based on Race.
+Total number of Deaths due to different reasons by Race.
+Top 10 States where the deaths due to COVID-19 is high.
+Total number of deaths with age
+COVID-19 Death vs Pneumonia Death by Race.
 #### Board Games (https://github.com/RamizuddinS/DS_Portfolio/tree/main/P7_Board%20Game)
 #### Credit Card Fraud Detection (https://github.com/RamizuddinS/DS_Portfolio/tree/main/P8_CreditCard%20Fraud%20Detection)
 #### Airline Safety (https://github.com/RamizuddinS/DS_Portfolio/tree/main/P9_AirlineSafety)
